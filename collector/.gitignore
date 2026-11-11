@@ -1,0 +1,4 @@
+__pycache__/
+.pytest_cache/
+lowtran_atlas_corrected_v2/
+lowtran_atlas_corrected_smoke/

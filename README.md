@@ -25,3 +25,7 @@ The experimental stable-central-angle correction was compared across 270 origina
 For long slant paths around 60 km and above, the remaining difference between requested range and the ray-tracing output can reach a few hundred metres, partly associated with the refraction/geometry handling. For the intended engineering Weibull atlas this is **provisionally acceptable** as a range-scale approximation (roughly 0.3–0.5% for 200–300 m at 60 km); it is not a claim that the corresponding *transmittance* error is necessarily 0.3–0.5%, nor is it a validation of all LOWTRAN geometry modes. The long-range residual remains a documented limitation rather than a blocker for work on the atlas.
 
 Do **not** overwrite the existing pre-fix atlas with patched-model values until the replacement dataset and fitting pipeline have been independently checked. The full overnight dataset rerun is **on hold pending explicit user authorization**.
+
+## Overnight data collection
+
+[`collector/`](collector/) contains the resumable **patched LOWTRAN 7 atlas collector v2**. The collector uses the patched Python source in `python/lowtran/`, reproduces the original 78,618-case grid, and offers an optional 27,330-point short-range refinement. A full run requires an explicit `--full` flag; no overnight calculation has been started as part of preparing this collector. Use `--plan`, `--preflight`, and `--smoke` before any full run.
