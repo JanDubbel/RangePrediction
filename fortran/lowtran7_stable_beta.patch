@@ -1,0 +1,17 @@
+--- a/lowtran7.f
++++ b/lowtran7.f
+@@ -4400,11 +4400,13 @@
+       IF (ZARG3.LT.0.0) GO TO 198
+       ZARG3=1.0
+       GO TO 197
+   198 ZARG3=-1.0
+   197 PHI = 180.0-ACOS(ZARG3)*DEG
+-      BETA = PHI +ANGLE -180.
++      BETA = 2.D0*DBLE(DEG)*ASIN(SQRT(MAX(0.D0,
++     &     (DBLE(RANGE)**2-(DBLE(H2)-DBLE(H1))**2)/
++     &     (4.D0*DBLE(R1)*DBLE(R2)))))
+ C#    RANGE = 0.
+       IF(RANGE .GT. 2.0  .AND. BETA .GT. 0)THEN
+       CALL FDBETA(H1,H2,BETA,ANGLE,PHI,LEN,HMIN,IERROR)
+       ELSE
+ CJ
